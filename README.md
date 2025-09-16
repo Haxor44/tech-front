@@ -6,7 +6,7 @@ A sophisticated luxury yacht charter landing page built with Vue.js and Vuetify,
 
 
 
-<img width="1272" height="6840" alt="localhost_5175_" src="https://github.com/user-attachments/assets/7ad748c2-7948-4147-b8d7-65e94a97f784" />
+
 
 
 
