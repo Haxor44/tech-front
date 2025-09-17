@@ -9,8 +9,8 @@
             <!-- Navigation within Hero -->
             <div class="hero-navbar">
               <v-container fluid class="px-0">
-                <!-- Desktop Navigation -->
-                <v-row align="center" justify="center" no-gutters class="d-none d-lg-flex">
+                <!-- Navigation -->
+                <v-row align="center" justify="center" no-gutters>
                   <v-col cols="12" class="d-flex justify-center flex-wrap align-center">
                     <v-btn text class="nav-link mx-3">Sample Page</v-btn>
                     <v-btn text class="nav-link mx-3">Sample Page</v-btn>
@@ -27,73 +27,19 @@
                     </v-btn>
                   </v-col>
                 </v-row>
-                
-                <!-- Mobile Navigation -->
-                <v-row align="center" justify="center" no-gutters class="d-flex d-lg-none">
-                  <v-col cols="auto">
-                    <v-btn 
-                      icon
-                      class="mobile-menu-btn"
-                      @click="mobileMenuOpen = !mobileMenuOpen"
-                      color="white"
-                    >
-                      <v-icon>mdi-menu</v-icon>
-                    </v-btn>
-                  </v-col>
-                </v-row>
               </v-container>
             </div>
-            
-            <!-- Mobile Menu Drawer -->
-            <v-navigation-drawer
-              v-model="mobileMenuOpen"
-              location="top"
-              temporary
-              class="mobile-drawer"
-              height="auto"
-            >
-              <div class="mobile-menu-content">
-                <v-list class="mobile-nav-list">
-                  <v-list-item>
-                    <v-btn text class="mobile-nav-link" block @click="closeMobileMenu">Sample Page</v-btn>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-btn text class="mobile-nav-link" block @click="closeMobileMenu">Sample Page</v-btn>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-btn text class="mobile-nav-link" block @click="closeMobileMenu">Sample Page</v-btn>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-btn text class="mobile-nav-link" block @click="closeMobileMenu">Sample Page</v-btn>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-btn text class="mobile-nav-link" block @click="closeMobileMenu">Sample Page</v-btn>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-btn text class="mobile-nav-link" block @click="closeMobileMenu">Sample Page</v-btn>
-                  </v-list-item>
-                  <v-list-item class="mt-4">
-                    <v-btn 
-                      variant="outlined" 
-                      class="mobile-login-btn"
-                      color="white"
-                      block
-                      @click="closeMobileMenu"
-                    >
-                      Log In
-                    </v-btn>
-                  </v-list-item>
-                </v-list>
-              </div>
-            </v-navigation-drawer>
             
             <!-- Hero Text Content -->
             <div class="hero-text-content text-center">
               <h1 class="hero-title mb-4">
                 Voyage Of Pure<br>Connection
               </h1>
-              <p class="hero-subtitle mb-8">
+              <p class="hero-subtitle mb-6">
                 Experience life onboard, designed for those who travel differently.
+              </p>
+              <p class="hero-cta mb-8">
+                EXPLORE LIFE ONBOARD
               </p>
             </div>
           </v-container>
@@ -104,7 +50,7 @@
               <v-row justify="center">
                 <v-col cols="12">
                   <!-- Advanced Booking Form -->
-                  <v-card class="booking-form mx-auto" max-width="1200" elevation="24" rounded="xl">
+                  <v-card class="booking-form mx-auto" max-width="1200" elevation="24" rounded="0">
                     <v-card-text class="pa-8">
                       <v-row align="end" no-gutters>
                         <!-- Start Date -->
@@ -167,7 +113,7 @@
                         </v-col>
 
                         <!-- Nights -->
-                        <v-col cols="12" sm="6" lg="auto" class="px-2 flex-shrink-0" style="min-width: 120px;">
+                        <v-col cols="12" sm="6" lg="auto" class="px-2 flex-grow-1">
                           <div class="booking-field-container">
                             <label class="field-label">Nights</label>
                             <v-select
@@ -279,57 +225,79 @@
       <!-- Private Caribbean Sailing Vacation Section -->
       <section class="caribbean-section py-16">
         <v-container>
-          <v-row justify="center" class="mb-12">
-            <v-col cols="12" class="text-center">
-              <h2 class="section-title">
-                Private Caribbean <span class="text-teal">Sailing Vacation</span>
+          <v-row>
+            <v-col cols="12" class="mb-4">
+              <h2 class="section-title caribbean-title">
+                Private Luxury Caribbean sailing vacation
               </h2>
-              <p class="section-subtitle mt-4">
-                Discover our exclusive collection of premium yachts designed for unforgettable moments
-              </p>
             </v-col>
           </v-row>
-
+          
           <v-row>
             <v-col cols="12" md="4" v-for="yacht in yachtTypes" :key="yacht.id">
-              <v-card class="yacht-card" elevation="4">
-                <v-img 
-                  :src="yacht.image" 
-                  height="300"
-                  cover
-                  class="yacht-image"
-                >
-                  <div class="yacht-overlay">
-                    <h3 class="yacht-name">{{ yacht.name }}</h3>
-                  </div>
-                </v-img>
-                <v-card-text class="pa-6">
-                  <div class="yacht-details">
-                    <div class="yacht-specs">
-                      <div class="spec-item">
-                        <span class="spec-label">Capacity:</span>
-                        <span class="spec-value">{{ yacht.capacity }}</span>
-                      </div>
-                      <div class="spec-item">
-                        <span class="spec-label">Length:</span>
-                        <span class="spec-value">{{ yacht.length }}</span>
-                      </div>
-                      <div class="spec-item">
-                        <span class="spec-label">Starting from:</span>
-                        <span class="spec-price">${{ yacht.price }}/day</span>
-                      </div>
+              <v-card class="yacht-card-new" elevation="2">
+                <div class="yacht-image-container">
+                  <v-img 
+                    :src="yacht.image" 
+                    height="200"
+                    cover
+                    class="yacht-image-new"
+                  ></v-img>
+                </div>
+                
+                <v-card-text class="yacht-content">
+                  <h3 class="yacht-title">{{ yacht.name }}</h3>
+                  <hr class="yacht-divider">
+                  
+                  <div class="available-dates">
+                    <h4 class="dates-title">Available Dates</h4>
+                    <div class="date-chips">
+                      <v-chip 
+                        v-for="date in yacht.availableDates" 
+                        :key="date"
+                        class="date-chip"
+                        size="small"
+                      >
+                        {{ date }}
+                      </v-chip>
                     </div>
+                  </div>
+                  
+                  <div class="yacht-pricing">
+                    <div class="nights-info">{{ yacht.nights }} nights</div>
+                    <div class="price-info">per booking starting from {{ yacht.startingPrice }}</div>
+                  </div>
+                  
+                  <div class="yacht-buttons">
                     <v-btn 
-                      color="teal darken-2" 
-                      variant="outlined" 
-                      block 
-                      class="mt-4 yacht-btn"
+                      variant="outlined"
+                      class="explore-btn-yacht"
+                      block
                     >
-                      View Details
+                      EXPLORE
+                    </v-btn>
+                    <v-btn 
+                      color="#135252"
+                      class="inquire-btn-yacht mt-2"
+                      block
+                    >
+                      INQUIRE NOW
                     </v-btn>
                   </div>
                 </v-card-text>
               </v-card>
+            </v-col>
+          </v-row>
+          
+          <v-row justify="center" class="mt-8">
+            <v-col cols="auto">
+              <v-btn 
+                color="#135252"
+                size="large"
+                class="explore-all-btn"
+              >
+                EXPLORE ALL VOYAGES
+              </v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -339,6 +307,25 @@
       <section class="world-class-section py-16">
         <v-container>
           <v-row align="center">
+            <v-col cols="12" md="6" class="pr-md-8">
+              <div class="world-class-content">
+                <h4 class="yachts-subtitle mb-4">Yachts</h4>
+                <h2 class="section-title world-class-title mb-6">
+                  Explore Our <br>World Class<br>
+                  <span class="text-teal">Yachts</span>
+                </h2>
+                <p class="section-description world-class-description mb-6">
+                  Designed by style visionary Prosper Assouline, each of the suites aboard our yacht features decor inspired by the sea and sky. The largest of their kind within.
+                </p>
+                <v-btn 
+                  color="#135252" 
+                  size="large"
+                  class="explore-btn world-class-btn"
+                >
+                  Explore Fleet
+                </v-btn>
+              </div>
+            </v-col>
             <v-col cols="12" md="6">
               <v-img 
                 src="/assets/image 13.png"
@@ -346,96 +333,78 @@
                 cover
               ></v-img>
             </v-col>
-            <v-col cols="12" md="6" class="pl-md-8">
-              <div class="world-class-content">
-                <h2 class="section-title mb-6">
-                  Explore Our <br>World Class<br>
-                  <span class="text-teal">Yachts</span>
-                </h2>
-                <p class="section-description mb-6">
-                  Our fleet represents the pinnacle of maritime luxury, featuring state-of-the-art 
-                  amenities and impeccable design. Each yacht is meticulously maintained to ensure 
-                  your experience exceeds every expectation.
-                </p>
-                <v-btn 
-                  color="teal darken-2" 
-                  size="large"
-                  class="explore-btn"
-                >
-                  Explore Fleet
-                </v-btn>
-              </div>
-            </v-col>
           </v-row>
         </v-container>
       </section>
 
       <!-- Voyage 50 Introduction -->
-      <section class="voyage-50-section py-16 bg-grey-lighten-5">
+      <section class="voyage-50-section py-16">
         <v-container>
-          <v-row justify="center" class="mb-8">
+          <v-row justify="center" class="mb-6">
             <v-col cols="12" class="text-center">
-              <h2 class="section-title mb-4">
-                Introducing <span class="text-teal">Voyage 50</span>
+              <h4 class="voyage-50-subtitle mb-3">Yachts</h4>
+              <h2 class="voyage-50-title mb-4">
+                Introducing Voyage 510
               </h2>
-              <p class="section-subtitle">
-                The epitome of luxury and performance on the water
-              </p>
-            </v-col>
-          </v-row>
-          <v-row justify="center">
-            <v-col cols="12" lg="10">
-              <v-img 
-                src="/assets/Copy of express-exterior-4.jpg"
-                class="voyage-50-image"
-                cover
-              ></v-img>
-            </v-col>
-          </v-row>
-          <v-row justify="center" class="mt-8">
-            <v-col cols="12" md="8" class="text-center">
+              <div class="voyage-50-description-container">
+                <p class="voyage-50-description mb-6">
+                  A stunning 150-foot motor yacht, meticulously designed and expertly manned to provide every modern comfort to its guests on deck areas. It offers an unparalleled charter experience. The yacht accommodates up to 15 guests in 9 lavish cabins, ensuring a personalized and unforgettable journey. A professional crew of 9 is committed to providing exceptional service and catering to every need.
+                </p>
+              </div>
               <v-btn 
-                color="teal darken-2" 
+                color="#135252" 
                 size="large"
-                class="discover-btn"
+                class="voyage-50-btn mb-8"
               >
-                Discover More
+                EXPLORE ALL VOYAGES
               </v-btn>
             </v-col>
           </v-row>
         </v-container>
+        <div class="voyage-50-image-full">
+          <v-img 
+            src="/assets/Copy of Thumbnail-3.png"
+            class="voyage-50-image"
+            height="600"
+            cover
+          ></v-img>
+        </div>
       </section>
 
       <!-- Seasonal Offers -->
-      <section class="seasonal-section py-16">
+      <section class="seasonal-section py-4">
         <v-container>
-          <v-row justify="center" class="mb-12">
-            <v-col cols="12" class="text-center">
-              <h2 class="section-title">
-                Seasonal <span class="text-teal">Offers</span>
-              </h2>
+          <v-row class="mb-3">
+            <v-col cols="12">
+              <h4 class="seasonal-subtitle mb-2">Yachts</h4>
+              <h1 class="seasonal-title mb-2">
+                <span class="seasonal-text">Seasonal</span> <span class="offers-text">Offers</span>
+              </h1>
             </v-col>
           </v-row>
           <v-row>
             <v-col 
               cols="12" 
-              sm="6" 
-              md="3" 
-              v-for="offer in seasonalOffers" 
+              md="4" 
+              v-for="offer in seasonalOffers.slice(0, 3)" 
               :key="offer.id"
+              class="d-flex"
             >
-              <v-card class="seasonal-card" elevation="2">
-                <v-img 
-                  :src="offer.image" 
-                  height="250"
-                  cover
-                  class="seasonal-image"
-                >
-                  <div class="seasonal-overlay">
-                    <h4 class="seasonal-title">{{ offer.title }}</h4>
-                    <p class="seasonal-description">{{ offer.description }}</p>
+              <v-card class="seasonal-card-new" elevation="0">
+                <div class="seasonal-image-container">
+                  <v-img 
+                    :src="offer.image" 
+                    height="300"
+                    cover
+                    class="seasonal-image-new"
+                  ></v-img>
+                  <div class="yacht-experience-badge">
+                    Yacht Experience
                   </div>
-                </v-img>
+                </div>
+                <v-card-text class="seasonal-content">
+                  <h3 class="seasonal-offer-title">{{ offer.title }}</h3>
+                </v-card-text>
               </v-card>
             </v-col>
           </v-row>
@@ -443,72 +412,88 @@
       </section>
 
       <!-- Fleet Showcase -->
-      <section class="fleet-section py-16 bg-grey-lighten-5">
+      <section class="fleet-section py-16">
         <v-container>
-          <v-row justify="center" class="mb-12">
+          <v-row justify="center" class="mb-8">
             <v-col cols="12" class="text-center">
-              <h2 class="section-title">
-                Explore Our <span class="text-teal">Fleet</span>
+              <h2 class="fleet-section-title">
+                <span class="explore-text">Explore Our</span> <span class="fleet-text">Fleet</span>
               </h2>
             </v-col>
           </v-row>
-          <v-row>
-            <v-col 
-              cols="12" 
-              sm="6" 
-              md="3" 
-              v-for="yacht in fleetYachts" 
-              :key="yacht.id"
-            >
-              <v-card class="fleet-card" elevation="4">
+          <div class="fleet-carousel-container">
+            <div class="fleet-images-grid">
+              <div 
+                v-for="(yacht, index) in fleetYachts" 
+                :key="yacht.id"
+                class="fleet-image-item"
+              >
                 <v-img 
                   :src="yacht.image" 
-                  height="300"
+                  height="280"
                   cover
-                  class="fleet-image"
+                  class="fleet-image-new"
                 ></v-img>
-              </v-card>
-            </v-col>
-          </v-row>
+                <div class="fleet-nav-dot fleet-nav-left" v-if="index === 0">
+                  <v-icon size="45" color="#135252">mdi-circle</v-icon>
+                </div>
+                <div class="fleet-nav-dot fleet-nav-right" v-if="index === fleetYachts.length - 1">
+                  <v-icon size="45" color="#135252">mdi-circle</v-icon>
+                </div>
+              </div>
+            </div>
+          </div>
         </v-container>
       </section>
 
       <!-- Activities Section -->
       <section class="activities-section py-16">
         <v-container>
-          <v-row justify="center" class="mb-12">
+          <v-row justify="center" class="mb-8">
             <v-col cols="12" class="text-center">
-              <h2 class="section-title">
-                Explore Our <span class="text-teal">Activities</span>
+              <h2 class="activities-section-title">
+                <span class="explore-activities-text">Explore Our</span> <span class="activities-text">Activities</span>
               </h2>
             </v-col>
           </v-row>
-          <v-row>
-            <v-col 
-              cols="12" 
-              sm="6" 
-              md="4" 
-              v-for="activity in activities" 
-              :key="activity.id"
-            >
-              <v-card class="activity-card" elevation="2">
+          <div class="activities-grid">
+            <div class="activities-row-1">
+              <div 
+                v-for="activity in activities.slice(0, 3)" 
+                :key="activity.id"
+                class="activity-image-item"
+              >
                 <v-img 
                   :src="activity.image" 
-                  height="250"
+                  height="200"
                   cover
-                  class="activity-image"
+                  class="activity-image-new"
                 ></v-img>
-              </v-card>
-            </v-col>
-          </v-row>
-          <v-row justify="center" class="mt-8">
-            <v-col cols="12" class="text-center">
-              <v-btn 
-                color="teal darken-2" 
-                size="large"
-                class="view-all-btn"
+              </div>
+            </div>
+            <div class="activities-row-2">
+              <div 
+                v-for="activity in activities.slice(3, 6)" 
+                :key="activity.id"
+                class="activity-image-item"
               >
-                View All Activities
+                <v-img 
+                  :src="activity.image" 
+                  height="200"
+                  cover
+                  class="activity-image-new"
+                ></v-img>
+              </div>
+            </div>
+          </div>
+          <v-row justify="center" class="mt-12">
+            <v-col cols="auto">
+              <v-btn 
+                color="#135252" 
+                size="large"
+                class="explore-activities-btn"
+              >
+                EXPLORE ALL VOYAGES
               </v-btn>
             </v-col>
           </v-row>
@@ -518,158 +503,200 @@
       <!-- Charter Consultant Section -->
       <section class="consultant-section py-16 bg-grey-lighten-4">
         <v-container>
-          <v-row align="center">
-            <v-col cols="12" md="6">
+          <v-row align="start">
+            <v-col cols="12" md="5">
               <div class="consultant-content">
-                <h2 class="section-title mb-6">
+                <h2 class="consultant-section-title mb-6">
                   Get in Touch with<br>your Personal<br>
-                  <span class="text-teal">Charter Consultant</span>
+                  <span class="charter-consultant-text">Charter Consultant</span>
                 </h2>
-                <p class="section-description mb-6">
-                  Our expert team is here to help you plan the perfect yacht experience. 
-                  From selecting the ideal vessel to customizing your itinerary, 
-                  we ensure every detail meets your expectations.
+                <p class="consultant-description mb-8">
+                  Ut dignissim ac libero sed consequat. Odio sed risus quis dui<br>
+                  magna bibendum erat mauris quis et.
                 </p>
+                
+                <div class="contact-info-section">
+                  <v-row>
+                    <v-col cols="12" sm="6">
+                      <div class="contact-info-group mb-6">
+                        <h4 class="contact-info-heading">PHONE</h4>
+                        <div class="contact-info-items">
+                          <div class="contact-item">
+                            <v-icon size="16" color="#135252" class="mr-2">mdi-phone</v-icon>
+                            <span class="contact-text">1-800-958-2898 x975</span>
+                          </div>
+                          <div class="contact-item">
+                            <v-icon size="16" color="#135252" class="mr-2">mdi-phone</v-icon>
+                            <span class="contact-text">1-844-445-8489 x892</span>
+                          </div>
+                        </div>
+                      </div>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                      <div class="contact-info-group">
+                        <h4 class="contact-info-heading">EMAIL</h4>
+                        <div class="contact-info-items">
+                          <div class="contact-item">
+                            <v-icon size="16" color="#135252" class="mr-2">mdi-email</v-icon>
+                            <span class="contact-text">support@yachtera.com</span>
+                          </div>
+                          <div class="contact-item">
+                            <v-icon size="16" color="#135252" class="mr-2">mdi-email</v-icon>
+                            <span class="contact-text">office@yachtera.com</span>
+                          </div>
+                        </div>
+                      </div>
+                    </v-col>
+                  </v-row>
+                </div>
               </div>
             </v-col>
-            <v-col cols="12" md="6">
-              <v-card class="contact-card" elevation="8">
-                <v-card-text class="pa-8">
-                  <v-form>
-                    <v-row>
-                      <v-col cols="12" sm="6">
+            <v-col cols="12" md="7">
+              <div class="contact-form-container">
+                <v-form class="contact-form">
+                  <v-row>
+                    <v-col cols="12" sm="6">
+                      <div class="form-field-group">
+                        <label class="form-label">Your First Name</label>
                         <v-text-field
-                          label="First Name"
+                          placeholder="enter your full first name"
                           variant="outlined"
                           hide-details="auto"
-                          class="mb-4"
+                          class="contact-input mb-4"
                         ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6">
+                      </div>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                      <div class="form-field-group">
+                        <label class="form-label">Your last Name</label>
                         <v-text-field
-                          label="Last Name"
+                          placeholder="enter your full last name"
                           variant="outlined"
                           hide-details="auto"
-                          class="mb-4"
+                          class="contact-input mb-4"
                         ></v-text-field>
-                      </v-col>
-                    </v-row>
-                    <v-text-field
-                      label="Email"
-                      type="email"
-                      variant="outlined"
-                      hide-details="auto"
-                      class="mb-4"
-                    ></v-text-field>
-                    <v-text-field
-                      label="Phone"
-                      variant="outlined"
-                      hide-details="auto"
-                      class="mb-4"
-                    ></v-text-field>
+                      </div>
+                    </v-col>
+                  </v-row>
+                  <v-row>
+                    <v-col cols="12" sm="6">
+                      <div class="form-field-group">
+                        <label class="form-label">Your Phone</label>
+                        <v-text-field
+                          placeholder="enter your phone number"
+                          variant="outlined"
+                          hide-details="auto"
+                          class="contact-input mb-4"
+                        ></v-text-field>
+                      </div>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                      <div class="form-field-group">
+                        <label class="form-label">Your Email</label>
+                        <v-text-field
+                          placeholder="enter your email address"
+                          type="email"
+                          variant="outlined"
+                          hide-details="auto"
+                          class="contact-input mb-4"
+                        ></v-text-field>
+                      </div>
+                    </v-col>
+                  </v-row>
+                  <div class="form-field-group">
+                    <label class="form-label">Your Message</label>
                     <v-textarea
-                      label="Message"
+                      placeholder="enter your full message here"
                       variant="outlined"
-                      rows="4"
+                      rows="5"
                       hide-details="auto"
-                      class="mb-6"
+                      class="contact-input mb-6"
                     ></v-textarea>
+                  </div>
+                  <div class="form-button-container">
                     <v-btn 
-                      color="teal darken-2" 
-                      size="large" 
-                      block
-                      class="contact-btn"
+                      class="send-message-btn"
                     >
                       Send Message
                     </v-btn>
-                  </v-form>
-                </v-card-text>
-              </v-card>
+                  </div>
+                </v-form>
+              </div>
             </v-col>
           </v-row>
         </v-container>
       </section>
 
       <!-- Footer -->
-      <v-footer class="footer-section bg-teal-darken-3" padless>
+      <v-footer class="footer-section" padless>
         <v-container>
-          <v-row class="py-8">
-            <v-col cols="12" md="3">
-              <div class="footer-logo mb-4">
-                <h3 class="text-white">Voyage</h3>
-                <p class="text-grey-lighten-2 mt-2">
-                  Premium yacht rentals for unforgettable experiences
-                </p>
-              </div>
-            </v-col>
-            <v-col cols="12" md="3">
-              <h4 class="text-white mb-4">Services</h4>
-              <div class="footer-links">
-                <v-btn text size="small" class="text-grey-lighten-2 pa-0 mb-2 justify-start">
-                  Yacht Rentals
-                </v-btn><br>
-                <v-btn text size="small" class="text-grey-lighten-2 pa-0 mb-2 justify-start">
-                  Private Charters
-                </v-btn><br>
-                <v-btn text size="small" class="text-grey-lighten-2 pa-0 mb-2 justify-start">
-                  Corporate Events
-                </v-btn><br>
-                <v-btn text size="small" class="text-grey-lighten-2 pa-0 mb-2 justify-start">
-                  Wedding Venues
-                </v-btn>
-              </div>
-            </v-col>
-            <v-col cols="12" md="3">
-              <h4 class="text-white mb-4">Company</h4>
-              <div class="footer-links">
-                <v-btn text size="small" class="text-grey-lighten-2 pa-0 mb-2 justify-start">
-                  About Us
-                </v-btn><br>
-                <v-btn text size="small" class="text-grey-lighten-2 pa-0 mb-2 justify-start">
-                  Our Fleet
-                </v-btn><br>
-                <v-btn text size="small" class="text-grey-lighten-2 pa-0 mb-2 justify-start">
-                  Careers
-                </v-btn><br>
-                <v-btn text size="small" class="text-grey-lighten-2 pa-0 mb-2 justify-start">
-                  Contact
-                </v-btn>
-              </div>
-            </v-col>
-            <v-col cols="12" md="3">
-              <h4 class="text-white mb-4">Contact Info</h4>
-              <div class="footer-contact">
-                <p class="text-grey-lighten-2 mb-2">
-                  <v-icon size="small" class="mr-2">mdi-phone</v-icon>
-                  +1 (555) 123-4567
-                </p>
-                <p class="text-grey-lighten-2 mb-2">
-                  <v-icon size="small" class="mr-2">mdi-email</v-icon>
-                  info@voyage.com
-                </p>
-                <p class="text-grey-lighten-2 mb-4">
-                  <v-icon size="small" class="mr-2">mdi-map-marker</v-icon>
-                  Miami, Florida
-                </p>
-                <div class="social-links">
-                  <v-btn icon size="small" class="mr-2" color="white">
-                    <v-icon>mdi-facebook</v-icon>
-                  </v-btn>
-                  <v-btn icon size="small" class="mr-2" color="white">
-                    <v-icon>mdi-instagram</v-icon>
-                  </v-btn>
-                  <v-btn icon size="small" class="mr-2" color="white">
-                    <v-icon>mdi-twitter</v-icon>
-                  </v-btn>
+          <v-row class="py-12">
+            <v-col cols="12" md="6">
+              <div class="footer-main-content">
+                <div class="footer-logo mb-4">
+                  <v-icon size="20" color="white" class="mr-2">mdi-ferry</v-icon>
+                  <h3 class="footer-brand-title">VOYAGE CHARTERS</h3>
                 </div>
+                <p class="footer-description mb-6">
+                  From selecting the perfect yacht to crafting bespoke itineraries, our team of seasoned yacht specialists ensures every aspect of your voyage is flawlessly orchestrated.
+                </p>
               </div>
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-row>
+                <v-col cols="12" sm="4">
+                  <div class="footer-column">
+                    <h4 class="footer-column-title mb-4">Company</h4>
+                    <div class="footer-links">
+                      <p class="footer-link mb-2">Fleet</p>
+                      <p class="footer-link mb-2">About us</p>
+                      <p class="footer-link mb-2">Services</p>
+                      <p class="footer-link mb-2">Contact Us</p>
+                    </div>
+                  </div>
+                </v-col>
+                <v-col cols="12" sm="4">
+                  <div class="footer-column">
+                    <h4 class="footer-column-title mb-4">Resources</h4>
+                    <div class="footer-links">
+                      <p class="footer-link mb-2">Destinations</p>
+                      <p class="footer-link mb-2">Yacht Guide</p>
+                      <p class="footer-link mb-2">Documentation</p>
+                      <p class="footer-link mb-2">Blog & News</p>
+                    </div>
+                  </div>
+                </v-col>
+                <v-col cols="12" sm="4">
+                  <div class="footer-column">
+                    <h4 class="footer-column-title mb-4">Help</h4>
+                    <div class="footer-links">
+                      <p class="footer-link mb-2">Customer Support</p>
+                      <p class="footer-link mb-2">Terms & Conditions</p>
+                      <p class="footer-link mb-2">Privacy Policy</p>
+                    </div>
+                  </div>
+                </v-col>
+              </v-row>
             </v-col>
           </v-row>
-          <v-divider color="white" opacity="0.3"></v-divider>
-          <v-row class="py-4">
-            <v-col cols="12" class="text-center">
-              <p class="text-grey-lighten-2 mb-0">
-                &copy; 2024 Voyage. All rights reserved.
+          <div class="footer-divider-section">
+            <v-divider color="#0A142D" opacity="1"></v-divider>
+            <div class="footer-chat-button-container">
+              <v-btn class="chat-btn" size="large">
+                <v-icon size="18" class="mr-2">mdi-chat-outline</v-icon>
+                Start Live Chat
+              </v-btn>
+            </div>
+          </div>
+          <v-row class="py-1 mb-16">
+            <v-col cols="12" sm="6">
+              <p class="footer-copyright mb-0">
+                Copyright © 2024 Yachtera
+              </p>
+            </v-col>
+            <v-col cols="12" sm="6" class="text-sm-right text-left">
+              <p class="footer-copyright mb-0">
+                Design By TokoTema
               </p>
             </v-col>
           </v-row>
@@ -684,7 +711,6 @@ export default {
   name: 'YachtLanding',
   data() {
     return {
-      mobileMenuOpen: false,
       bookingForm: {
         startDate: '07 29 2024',
         endDate: '07 30 2024',
@@ -707,51 +733,45 @@ export default {
           id: 1,
           name: 'Treasure Hunter',
           image: '/assets/hero-background.jpg',
-          capacity: '8 guests',
-          length: '45 ft',
-          price: '1,500'
+          availableDates: ['Aug 4 - 15, 2025', 'Aug 15 - 19, 2025', 'Aug 19 - 26, 2025', 'Aug 26 - 29, 2025'],
+          nights: '7',
+          startingPrice: '$50,000'
         },
         {
           id: 2,
           name: 'Nowhere Else',
           image: '/assets/treasure-hunter-11 3.png',
-          capacity: '12 guests',
-          length: '55 ft',
-          price: '2,200'
+          availableDates: ['Aug 4 - 15, 2025', 'Aug 15 - 19, 2025', 'Aug 19 - 26, 2025', 'Aug 26 - 29, 2025'],
+          nights: '7',
+          startingPrice: '$65,000'
         },
         {
           id: 3,
           name: 'Home Away',
           image: '/assets/treasure-hunter-11 4 (1).png',
-          capacity: '10 guests',
-          length: '50 ft',
-          price: '1,800'
+          availableDates: ['Aug 4 - 15, 2025', 'Aug 15 - 19, 2025', 'Aug 19 - 26, 2025', 'Aug 26 - 29, 2025'],
+          nights: '7',
+          startingPrice: '$55,000'
         }
       ],
       seasonalOffers: [
         {
           id: 1,
-          title: 'Summer Special',
-          description: 'Book now and save 20%',
+          title: 'Your ultimate summer yacht escape awaits, docked and ready for adventure',
+          description: 'Experience the luxury of summer aboard our premium yachts',
           image: '/assets/Copy of express-exterior-4.jpg'
         },
         {
           id: 2,
-          title: 'Weekend Getaway',
-          description: 'Perfect for short trips',
+          title: 'Savoring sun-drenched moments on deck, pure summer yacht bliss.',
+          description: 'Indulge in perfect moments under the Mediterranean sun',
           image: '/assets/Copy of express-guests-11.jpg'
         },
         {
           id: 3,
-          title: 'Corporate Packages',
-          description: 'Team building events',
+          title: 'Elevate your summer voyage with exquisite drinks and refined luxury',
+          description: 'Premium beverages and world-class service await',
           image: '/assets/Copy of express-service-7.jpg'
-        },
-        {
-          id: 4,
-          title: 'Romantic Sunset',
-          description: 'Intimate dinner cruises',
-          image: '/assets/Copy of Thumbnail-3.png'
         }
       ],
       fleetYachts: [
@@ -807,9 +827,6 @@ export default {
     openDatePicker(type) {
       console.log('Opening date picker for:', type);
     },
-    closeMobileMenu() {
-      this.mobileMenuOpen = false;
-    },
     initScrollAnimations() {
       // Create intersection observer for scroll animations
       const observerOptions = {
@@ -840,7 +857,7 @@ export default {
 
 <style scoped>
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inria+Serif:wght@300;400;700&family=Unna:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 /* Global Styles */
 * {
@@ -939,7 +956,8 @@ export default {
 
 .nav-link {
   color: white !important;
-  font-weight: 500;
+  font-family: 'Inria Serif', serif !important;
+  font-weight: 400;
   text-transform: none;
   background: none !important;
   box-shadow: none !important;
@@ -954,71 +972,11 @@ export default {
   box-shadow: none !important;
 }
 
-/* Mobile Menu Styles */
-.mobile-menu-btn {
-  background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px !important;
-  transition: all 0.3s ease;
-}
-
-.mobile-menu-btn:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  transform: scale(1.05);
-}
-
-.mobile-drawer {
-  background: rgba(0, 0, 0, 0.95) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-menu-content {
-  padding: 20px;
-}
-
-.mobile-nav-list {
-  background: transparent !important;
-}
-
-.mobile-nav-link {
-  color: white !important;
-  font-weight: 500;
-  text-transform: none;
-  background: none !important;
-  box-shadow: none !important;
-  text-align: center;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-nav-link:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  transform: translateX(5px);
-}
-
-.mobile-login-btn {
-  border: 2px solid white !important;
-  color: white !important;
-  font-weight: 600;
-  text-transform: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  backdrop-filter: blur(5px);
-  margin-top: 10px;
-}
-
-.mobile-login-btn:hover {
-  background-color: white !important;
-  color: #135252 !important;
-}
-
 .book-now-btn {
   border: 2px solid white !important;
   color: white !important;
-  font-weight: 600;
+  font-family: 'Inria Serif', serif !important;
+  font-weight: 400;
   text-transform: none;
   padding: 12px 28px;
   border-radius: 6px;
@@ -1036,6 +994,7 @@ export default {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   background: 
+    linear-gradient(270.4deg, rgba(35, 53, 65, 0.1) 0.3%, rgba(23, 42, 54, 0.8) 98.23%),
     linear-gradient(135deg, 
       rgba(0, 105, 92, 0.3) 0%, 
       rgba(0, 0, 0, 0.4) 25%, 
@@ -1065,7 +1024,7 @@ export default {
 
 .hero-content {
   height: 100vh;
-  padding-top: 40px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1074,7 +1033,7 @@ export default {
 
 .hero-navbar {
   flex-shrink: 0;
-  padding: 20px 0;
+  padding: 10px 0;
   z-index: 60;
   display: flex;
   justify-content: center;
@@ -1088,13 +1047,12 @@ export default {
 }
 
 .hero-text-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 50;
+  width: 100%;
 }
 
 .hero-form-area {
@@ -1110,8 +1068,9 @@ export default {
 }
 
 .hero-title {
+  font-family: 'Inria Serif', serif;
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: 400;
   color: white;
   text-align: center;
   line-height: 1.1;
@@ -1120,6 +1079,7 @@ export default {
 }
 
 .hero-subtitle {
+  font-family: 'Inria Serif', serif;
   font-size: 1.25rem;
   color: white;
   opacity: 0.95;
@@ -1130,11 +1090,24 @@ export default {
   margin: 0 auto;
 }
 
+.hero-cta {
+  font-family: 'Inria Serif', serif;
+  font-size: 1rem;
+  color: white;
+  opacity: 0.9;
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
 .booking-form {
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.95) !important;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0px 4px 8px 8px #0380882E !important;
   position: relative;
   z-index: 10;
 }
@@ -1175,7 +1148,7 @@ export default {
 
 .booking-field .v-field {
   background: rgba(255, 255, 255, 0.95) !important;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .booking-field .v-field--focused {
@@ -1209,7 +1182,7 @@ export default {
   text-transform: none;
   font-weight: 700;
   font-size: 0.9rem !important;
-  border-radius: 8px;
+  border-radius: 0;
   color: white !important;
   box-shadow: 0 8px 24px rgba(0, 105, 92, 0.4);
   transition: all 0.3s ease;
@@ -1244,7 +1217,9 @@ export default {
 }
 
 .section-description {
+  font-family: 'Inria Serif', serif;
   font-size: 1rem;
+  font-weight: 400;
   color: #666;
   line-height: 1.6;
 }
@@ -1260,8 +1235,9 @@ export default {
 }
 
 .our-story-title {
+  font-family: 'Inria Serif', serif;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #666;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1269,21 +1245,25 @@ export default {
 }
 
 .modern-luxury-title {
+  font-family: 'Inria Serif', serif;
   color: #135252 !important;
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.2;
 }
 
 .experiences-text {
+  font-family: 'Inria Serif', serif;
   color: #31C9CA !important;
+  font-weight: 400;
 }
 
 .explore-voyages-btn {
+  font-family: 'Inria Serif', serif;
   background: #135252 !important;
   color: white !important;
   text-transform: none;
-  font-weight: 600;
+  font-weight: 400;
   padding: 12px 32px;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(19, 82, 82, 0.3);
@@ -1299,6 +1279,146 @@ export default {
 /* Caribbean Section */
 .caribbean-section {
   background: white;
+}
+
+.caribbean-title {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  text-align: left !important;
+  font-size: 22px !important;
+  color: #135252 !important;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.yacht-card-new {
+  border-radius: 0 !important;
+  overflow: hidden;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.yacht-image-container {
+  position: relative;
+}
+
+.yacht-image-new {
+  border-radius: 0;
+}
+
+.yacht-size-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #007bff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.yacht-content {
+  padding: 20px !important;
+}
+
+.yacht-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #135252;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.yacht-divider {
+  border: none;
+  height: 1px;
+  background-color: #135252;
+  margin: 15px 0;
+}
+
+.available-dates {
+  margin: 20px 0;
+}
+
+.dates-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.date-chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.date-chip {
+  background-color: #f0f0f0 !important;
+  color: #333 !important;
+  font-size: 11px !important;
+  height: auto !important;
+  padding: 8px 6px !important;
+  border-radius: 3px !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.yacht-pricing {
+  margin: 15px 0;
+  text-align: left;
+}
+
+.nights-info {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.price-info {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 400;
+}
+
+.yacht-buttons {
+  margin-top: 20px;
+}
+
+.explore-btn-yacht {
+  border: 1px solid #135252 !important;
+  color: #135252 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  height: 36px !important;
+  border-radius: 0 !important;
+}
+
+.inquire-btn-yacht {
+  background: #135252 !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  height: 36px !important;
+  border-radius: 0 !important;
+}
+
+.explore-all-btn {
+  background: #135252 !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 0 !important;
+  font-size: 0.9rem !important;
 }
 
 .yacht-card {
@@ -1377,11 +1497,38 @@ export default {
 }
 
 .world-class-image {
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .world-class-content {
   padding: 20px 0;
+}
+
+.yachts-subtitle {
+  font-family: 'Inria Serif', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.world-class-title {
+  font-family: 'Inria Serif', serif !important;
+  font-weight: 400 !important;
+}
+
+.world-class-description {
+  font-family: 'Inria Serif', serif !important;
+  font-weight: 400 !important;
+}
+
+.world-class-btn {
+  font-family: 'Inria Serif', serif !important;
+  font-weight: 400 !important;
+  background: #135252 !important;
+  color: white !important;
 }
 
 .explore-btn {
@@ -1392,12 +1539,64 @@ export default {
 
 /* Voyage 50 Section */
 .voyage-50-section {
-  background: #fafafa;
+  background: white;
+}
+
+.voyage-50-subtitle {
+  font-family: 'Inria Serif', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.voyage-50-title {
+  font-family: 'Inria Serif', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+.voyage-50-description-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.voyage-50-description {
+  font-family: 'Inria Serif', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.voyage-50-btn {
+  font-family: 'Inria Serif', serif !important;
+  font-weight: 400 !important;
+  background: #135252 !important;
+  color: white !important;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 0 !important;
+  font-size: 0.9rem !important;
+}
+
+.voyage-50-image-full {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
 }
 
 .voyage-50-image {
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .discover-btn {
@@ -1409,6 +1608,90 @@ export default {
 /* Seasonal Offers */
 .seasonal-section {
   background: white;
+}
+
+.seasonal-subtitle {
+  font-family: 'Inria Serif', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.seasonal-title {
+  font-family: 'Inria Serif', serif;
+  font-size: 60px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.3;
+}
+
+.seasonal-text {
+  color: #135252;
+}
+
+.offers-text {
+  color: #31C9CA;
+}
+
+.seasonal-card-new {
+  background: #ECECEC;
+  border: none;
+  border-radius: 0 !important;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.seasonal-image-container {
+  position: relative;
+  flex: 1;
+}
+
+.seasonal-image-new {
+  border-radius: 0;
+}
+
+.yacht-experience-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #135252;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.seasonal-content {
+  padding: 24px !important;
+  background: #ECECEC;
+}
+
+.seasonal-offer-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-style: normal;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.seasonal-offer-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-style: normal;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .seasonal-card {
@@ -1449,7 +1732,86 @@ export default {
 
 /* Fleet Section */
 .fleet-section {
-  background: #fafafa;
+  background: white;
+}
+
+.fleet-section-title {
+  font-family: 'Inria Serif', serif;
+  font-size: 60px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.3;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.explore-text {
+  color: #135252;
+}
+
+.fleet-text {
+  color: #31C9CA;
+}
+
+.fleet-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+  overflow: visible;
+}
+
+.fleet-nav-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.fleet-nav-left {
+  position: absolute;
+  left: -23px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.fleet-nav-right {
+  position: absolute;
+  right: -23px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.fleet-images-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  padding: 0 50px;
+  overflow: visible;
+}
+
+.fleet-image-item {
+  position: relative;
+  overflow: visible;
+  border-radius: 0;
+}
+
+.fleet-image-new {
+  border-radius: 0;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.fleet-image-item:hover .fleet-image-new {
+  transform: scale(1.05);
 }
 
 .fleet-card {
@@ -1466,9 +1828,99 @@ export default {
   border-radius: 12px;
 }
 
+@media (max-width: 960px) {
+  .fleet-images-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .fleet-nav-left {
+    left: -20px;
+  }
+  
+  .fleet-nav-right {
+    right: -20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .fleet-images-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .fleet-section-title {
+    font-size: 40px;
+  }
+}
+
 /* Activities Section */
 .activities-section {
   background: white;
+}
+
+.activities-section-title {
+  font-family: 'Inria Serif', serif;
+  font-size: 60px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.3;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.explore-activities-text {
+  color: #135252;
+}
+
+.activities-text {
+  color: #31C9CA;
+}
+
+.activities-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.activities-row-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.activities-row-2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.activity-image-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.activity-image-new {
+  border-radius: 0;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.activity-image-item:hover .activity-image-new {
+  transform: scale(1.05);
+}
+
+.explore-activities-btn {
+  font-family: 'Inria Serif', serif !important;
+  font-weight: 400 !important;
+  background: #135252 !important;
+  color: white !important;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 0 !important;
+  font-size: 0.9rem !important;
+  margin-top: 6rem !important;
 }
 
 .activity-card {
@@ -1491,9 +1943,193 @@ export default {
   padding: 12px 32px;
 }
 
+@media (max-width: 960px) {
+  .activities-row-1,
+  .activities-row-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .activities-section-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .activities-row-1,
+  .activities-row-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .activities-section-title {
+    font-size: 30px;
+  }
+}
+
 /* Consultant Section */
 .consultant-section {
   background: #f5f5f5;
+}
+
+.consultant-content {
+  padding-top: 2.5rem;
+}
+
+.consultant-section-title {
+  font-family: 'Inria Serif', serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #135252;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.charter-consultant-text {
+  color: #31C9CA;
+}
+
+.consultant-description {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #9499A6;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.contact-info-section {
+  margin-top: 1rem;
+}
+
+.contact-info-group {
+  margin-bottom: 1rem;
+}
+
+.contact-info-heading {
+  font-family: 'Unna', serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  color: #020713;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+}
+
+.contact-text {
+  font-family: 'Unna', serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  color: #020713;
+}
+
+.contact-form-container {
+  background: #F5F5F5;
+  padding: 3rem;
+  border-radius: 12px;
+  margin-left: 0.5rem;
+  width: 100%;
+}
+
+.contact-form {
+  padding: 0;
+  width: 100%;
+}
+
+.form-field-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.form-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.contact-input {
+  background: white;
+  width: 100%;
+}
+
+.contact-input .v-field {
+  background: white !important;
+  border-radius: 8px !important;
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.contact-input .v-field__input {
+  font-size: 8px;
+  color: #999;
+  padding: 18px;
+  min-height: 50px;
+  width: 100% !important;
+}
+
+.contact-input .v-field__input::placeholder {
+  font-size: 8px !important;
+  color: #bbb !important;
+}
+
+.contact-input .v-field__outline {
+  --v-field-border-opacity: 0.2;
+  border-radius: 8px;
+}
+
+.contact-input .v-field--focused .v-field__outline {
+  --v-field-border-opacity: 0.4;
+  color: #135252;
+}
+
+.contact-input .v-field__outline__start,
+.contact-input .v-field__outline__end {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.contact-input .v-field--focused .v-field__outline__start,
+.contact-input .v-field--focused .v-field__outline__end {
+  border-color: #135252 !important;
+}
+
+.form-button-container {
+  margin-top: 1rem;
+}
+
+.send-message-btn {
+  background: #135252 !important;
+  color: white !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  padding: 12px 24px !important;
+  border-radius: 30px !important;
+  font-size: 13px !important;
+  min-width: 120px;
+  box-shadow: 0 3px 10px rgba(19, 82, 82, 0.3) !important;
+  letter-spacing: 0.3px;
+  height: 45px !important;
+}
+
+.send-message-btn:hover {
+  background: #0f4444 !important;
+  box-shadow: 0 6px 16px rgba(19, 82, 82, 0.4) !important;
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
 }
 
 .contact-card {
@@ -1507,9 +2143,59 @@ export default {
   height: 48px;
 }
 
+@media (max-width: 960px) {
+  .consultant-section-title {
+    font-size: 32px;
+    text-align: center;
+  }
+  
+  .consultant-description {
+    text-align: center;
+  }
+  
+  .contact-info-section {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-info-items {
+    align-items: center;
+  }
+}
+
 /* Footer */
 .footer-section {
-  background: #004d4d !important;
+  background: #135252 !important;
+  color: white;
+}
+
+.footer-brand-title {
+  font-family: 'Unna', serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #FFFFFF;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0;
+}
+
+.footer-description {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #9499A6;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.footer-column-title {
+  font-family: 'Unna', serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #FFFFFF;
+  font-size: 18px;
+  margin-bottom: 1rem;
 }
 
 .footer-links {
@@ -1517,14 +2203,62 @@ export default {
   flex-direction: column;
 }
 
-.footer-contact p {
+.footer-link {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #9499A6;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #FFFFFF;
+}
+
+.footer-copyright {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #BCC3D8;
+  font-size: 16px;
+}
+
+.chat-btn {
+  background: #3B71FB !important;
+  color: white !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  border-radius: 25px !important;
+  font-size: 14px !important;
+  padding: 12px 20px !important;
+  box-shadow: 0 2px 8px rgba(59, 113, 251, 0.3) !important;
+}
+
+.chat-btn:hover {
+  background: #2B5AE6 !important;
+  box-shadow: 0 4px 12px rgba(59, 113, 251, 0.4) !important;
+}
+
+.footer-logo {
   display: flex;
   align-items: center;
 }
 
-.social-links {
-  display: flex;
-  gap: 8px;
+.footer-divider-section {
+  position: relative;
+  margin: 3rem 0;
+}
+
+.footer-chat-button-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-120%);
+  z-index: 2;
 }
 
 /* Responsive Design */
